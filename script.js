@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     {
-      threshold: 0.00000001, // Анимация срабатывает, если 30% элемента видны
+      threshold: 0.00000001, // Анимация срабатывает, если часть элемента видны
     }
   );
 
