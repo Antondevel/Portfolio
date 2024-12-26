@@ -130,38 +130,58 @@ a:hover {
   cursor: default;
 }
 
-/* Container for the text */
+/* Контейнер для текста */
 .text-container {
   overflow: hidden;
-  /* Hide text outside the container during the animation */
+  /* Скрывает текст, выходящий за пределы контейнера, во время анимации */
   position: relative;
-
-
 }
 
-/* Paragraph with animation */
+/* Абзац с анимацией */
 .text-container p {
-
   opacity: 0;
-  /* Start hidden */
+  /* Начальное состояние: текст скрыт */
   transform: translateY(20px);
-  /* Move text slightly downward */
+  /* Смещает текст немного вниз для эффекта появления */
   animation: textReveal 2s ease forwards;
-  /* Trigger the animation */
+  /* Применяет анимацию textReveal */
 }
 
-/* Keyframes for the text reveal effect */
+/* Начальное состояние текста (скрыт за пределами экрана) */
+.text-container p {
+  transform: translateX(100%);
+  /* Смещает текст вправо за пределы экрана */
+  opacity: 0;
+  /* Делает текст полностью прозрачным */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  /* Добавляет плавный переход для эффекта появления */
+}
+
+/* Состояние, когда текст становится видимым */
+.text-container p.visible {
+  transform: translateX(0);
+  /* Возвращает текст в исходное положение */
+  opacity: 1;
+  /* Делает текст полностью видимым */
+}
+
+/* Кадры для анимации textReveal */
 @keyframes textReveal {
   0% {
     opacity: 0;
+    /* Начальное состояние: текст полностью прозрачный */
     transform: translateX(100px);
+    /* Текст смещен вправо */
   }
 
   100% {
     opacity: 1;
+    /* Конечное состояние: текст становится видимым */
     transform: translateX(0);
+    /* Текст возвращается в начальное положение */
   }
 }
+
 
 
 /* HAMBURGER MENU */
