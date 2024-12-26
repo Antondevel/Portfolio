@@ -25,7 +25,7 @@ p {
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .fade-in.visible {
@@ -34,32 +34,28 @@ p {
 }
 
 .btn {
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .btn:hover {
-
   transform: scale(1.1);
-  /* Увеличение размера кнопки */
+  /* Увеличение кнопки */
+
+  /* Пример изменения цвета при наведении */
 }
 
 .details-container,
 .contact-info-upper-container {
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .details-container:hover {
   transform: scale(1.05);
-
-
 }
 
 .contact-info-upper-container:hover {
   transform: scale(1.05);
-
 }
-
 
 .icon {
   transition: transform 0.3s ease;
@@ -67,17 +63,26 @@ p {
 
 .icon:hover {
   transform: scale(1.2);
+  /* Увеличение иконки */
 }
 
 .title {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .title:hover {
   color: black;
   transform: scale(1.1);
-
 }
+
+/* Оптимизация производительности */
+.details-container,
+.contact-info-upper-container,
+.icon,
+.title {
+  will-change: transform, opacity;
+}
+
 
 
 
@@ -487,6 +492,7 @@ section {
 .btn-container {
   gap: 1rem;
 }
+
 
 /* ABOUT SECTION */
 
